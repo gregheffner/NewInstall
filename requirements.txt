@@ -1,2 +1,8 @@
 loguru==0.7.0
 python-dotenv==1.0.0
+babel==2.14.0
+flask-caching==2.1.0
+humanize==4.9.0
+markdown==3.6
+python-dotenv==1.0.0
+pyyaml==6.0.1
