@@ -63,6 +63,21 @@ def setup_logging(debug: bool):
     return logger
 
 
+def create():
+    os.system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
+    os.system('brew install python')
+    os.system('sudo easy_install pip')
+    os.system('pip install virtualenv')
+    os.system("brew bundle --file /NewInstall/brewbundle/Brewfile")
+    os.system("sudo apt install zsh")
+    os.system("chsh -s $(which zsh)")
+    os.system("sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"")
+    os.system("cp /zshrc_files/zshrc ~/.zshrc")
+    os.system("pip install cookiecutter")
+    os.system("git clone git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k")
+    os.system("cp /NewInstall/p10k.zsh ~/.p10k.zsh")
+
+
 if __name__ == "__main__":
     # Parse the arguments
     args = parse_args()
@@ -71,13 +86,5 @@ if __name__ == "__main__":
     # Load .env file
     logger.debug("Loading .env file")
     load_dotenv()
-
-    # Load environment variables
-    EXAMPLE_VARIABLE = os.getenv("EXAMPLE_VARIABLE")
-    if EXAMPLE_VARIABLE:
-        logger.debug(f"EXAMPLE_VARIABLE: {EXAMPLE_VARIABLE}")
-    else:
-        logger.debug("EXAMPLE_VARIABLE is empty or not defined in .env file")
-
-    # Start here
-    logger.success("Template Generated!")
+    create()
+    logger.info("Script Finished")
