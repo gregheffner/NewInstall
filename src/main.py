@@ -71,11 +71,9 @@ def create():
     os.system("brew bundle --file /NewInstall/brewbundle/Brewfile")
     os.system("sudo apt install zsh")
     os.system("chsh -s $(which zsh)")
-    os.system("sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"")
-    os.system("cp /zshrc_files/zshrc ~/.zshrc")
+    os.system("sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"")
     os.system("pip install cookiecutter")
-    os.system("git clone git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k")
-    os.system("cp /NewInstall/p10k.zsh ~/.p10k.zsh")
+    os.system("git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k")
 
 
 if __name__ == "__main__":
